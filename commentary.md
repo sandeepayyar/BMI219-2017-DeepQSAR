@@ -128,7 +128,7 @@ We introduce Drop by following these steps:
 
 1. Insert Dropout in the definition of the forward propagation implemented in `Model.__call__`. Dropout is implemented as [`F.dropout`](http://docs.chainer.org/en/stable/reference/functions.html#chainer.functions.dropout) in Chainer.
 2. Add `train` attribute to `Model`, which specifies the mode of the model. `train` should be set to `True` initially.
-3. Each `Evaluator` (explained later) extracts the model to evaluate it during test phase (e.g. see [here](https://github.com/delta2323/BMI219-2017-DeepQSAR/blob/master/lib/evaluations/accuracy.py#L43), `predictor` is a instance of `Model`). Set the `train` attribute of the model to `False` temporaliry before forward propagation.
+3. Each `Evaluator` (explained later) extracts the model to evaluate it during test phase (e.g. see [here](https://github.com/delta2323/BMI219-2017-DeepQSAR/blob/master/lib/evaluations/accuracy.py#L43), `predictor` is a instance of `Model`). Set the `train` attribute of the model to `False` temporarily before forward propagation.
 4. After the forward propagation. Set the `train` attribute to `True` again.
 
 Hint: [`TestModeEvaluator`](https://github.com/pfnet/chainer/blob/master/examples/imagenet/train_imagenet.py#L68) in the official ImageNet example could be helpful.
